@@ -1,0 +1,72 @@
+TY  - JOUR
+DB  - PubMed
+AU  - Schneider, Valerie A
+AU  - Graves-Lindsay, Tina
+AU  - Howe, Kerstin
+AU  - Bouk, Nathan
+AU  - Chen, Hsiu-Chuan
+AU  - Kitts, Paul A
+AU  - Murphy, Terence D
+AU  - Pruitt, Kim D
+AU  - Thibaud-Nissen, Françoise
+AU  - Albracht, Derek
+AU  - Fulton, Robert S
+AU  - Kremitzki, Milinn
+AU  - Magrini, Vincent
+AU  - Markovic, Chris
+AU  - McGrath, Sean
+AU  - Steinberg, Karyn Meltz
+AU  - Auger, Kate
+AU  - Chow, William
+AU  - Collins, Joanna
+AU  - Harden, Glenn
+AU  - Hubbard, Timothy
+AU  - Pelan, Sarah
+AU  - Simpson, Jared T
+AU  - Threadgold, Glen
+AU  - Torrance, James
+AU  - Wood, Jonathan M
+AU  - Clarke, Laura
+AU  - Koren, Sergey
+AU  - Boitano, Matthew
+AU  - Peluso, Paul
+AU  - Li, Heng
+AU  - Chin, Chen-Shan
+AU  - Phillippy, Adam M
+AU  - Durbin, Richard
+AU  - Wilson, Richard K
+AU  - Flicek, Paul
+AU  - Eichler, Evan E
+AU  - Church, Deanna M
+T1  - Evaluation of GRCh38 and de novo haploid genome assemblies demonstrates the enduring quality of the reference assembly
+LA  - eng
+SN  - 1549-5469
+SN  - 1088-9051
+Y1  - 2017/05/
+ET  - 2017/04/10
+AB  - The human reference genome assembly plays a central role in nearly all aspects of today's basic and clinical research. GRCh38 is the first coordinate-changing assembly update since 2009; it reflects the resolution of roughly 1000 issues and encompasses modifications ranging from thousands of single base changes to megabase-scale path reorganizations, gap closures, and localization of previously orphaned sequences. We developed a new approach to sequence generation for targeted base updates and used data from new genome mapping technologies and single haplotype resources to identify and resolve larger assembly issues. For the first time, the reference assembly contains sequence-based representations for the centromeres. We also expanded the number of alternate loci to create a reference that provides a more robust representation of human population variation. We demonstrate that the updates render the reference an improved annotation substrate, alter read alignments in unchanged regions, and impact variant interpretation at clinically relevant loci. We additionally evaluated a collection of new de novo long-read haploid assemblies and conclude that although the new assemblies compare favorably to the reference with respect to continuity, error rate, and gene completeness, the reference still provides the best representation for complex genomic regions and coding sequences. We assert that the collected updates in GRCh38 make the newer assembly a more robust substrate for comprehensive analyses that will promote our understanding of human biology and advance our efforts to improve health.
+SP  - 849
+EP  - 864
+VL  - 27
+IS  - 5
+AN  - 28396521
+UR  - https://pubmed.ncbi.nlm.nih.gov/28396521
+DO  - 10.1101/gr.213611.116
+L2  - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5411779/
+U1  - 28396521[pmid]
+U2  - PMC5411779[pmcid]
+U4  - gr.213611.116[PII]
+J2  - Genome Res
+JF  - Genome research
+KW  - Contig Mapping/*methods/standards
+KW  - *Genome, Human
+KW  - Genomics/*methods/standards
+KW  - Haploidy
+KW  - Haplotypes
+KW  - Humans
+KW  - Polymorphism, Genetic
+KW  - Reference Standards
+KW  - Sequence Analysis, DNA/*methods/standards
+KW  - *Software
+PB  - Cold Spring Harbor Laboratory Press
+ER  - 

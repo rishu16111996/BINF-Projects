@@ -1,0 +1,47 @@
+TY  - JOUR
+DB  - PubMed
+AU  - Kalinin, Alexandr A
+AU  - Higgins, Gerald A
+AU  - Reamaroon, Narathip
+AU  - Soroushmehr, Sayedmohammadreza
+AU  - Allyn-Feuer, Ari
+AU  - Dinov, Ivo D
+AU  - Najarian, Kayvan
+AU  - Athey, Brian D
+T1  - Deep learning in pharmacogenomics: from gene regulation to patient stratification
+LA  - eng
+SN  - 1744-8042
+SN  - 1462-2416
+Y1  - 2018/05/
+ET  - 2018/04/26
+AB  - This Perspective provides examples of current and future applications of deep learning in pharmacogenomics, including: identification of novel regulatory variants located in noncoding domains of the genome and their function as applied to pharmacoepigenomics; patient stratification from medical records; and the mechanistic prediction of drug response, targets and their interactions. Deep learning encapsulates a family of machine learning algorithms that has transformed many important subfields of artificial intelligence over the last decade, and has demonstrated breakthrough performance improvements on a wide range of tasks in biomedicine. We anticipate that in the future, deep learning will be widely used to predict personalized drug response and optimize medication selection and dosing, using knowledge extracted from large and complex molecular, epidemiological, clinical and demographic datasets.
+SP  - 629
+EP  - 650
+VL  - 19
+IS  - 7
+AN  - 29697304
+UR  - https://pubmed.ncbi.nlm.nih.gov/29697304
+DO  - 10.2217/pgs-2018-0008
+L2  - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6022084/
+U1  - 29697304[pmid]
+U2  - PMC6022084[pmcid]
+J2  - Pharmacogenomics
+JF  - Pharmacogenomics
+KW  - *adverse events
+KW  - *artificial intelligence
+KW  - *deep learning
+KW  - *drug discovery
+KW  - *drug–drug interaction
+KW  - *drug–gene interaction
+KW  - *noncoding regulatory variation
+KW  - *patient stratification
+KW  - *pharmacogenomics
+KW  - Algorithms
+KW  - Databases as Topic
+KW  - *Deep Learning/trends
+KW  - Humans
+KW  - *Models, Educational
+KW  - Neural Networks, Computer
+KW  - Pharmacogenetics/*education/*trends
+PB  - Future Medicine Ltd
+ER  - 
