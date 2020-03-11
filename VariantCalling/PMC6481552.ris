@@ -1,0 +1,37 @@
+TY  - JOUR
+DB  - PubMed
+AU  - Johnson, Lisa K
+AU  - Alexander, Harriet
+AU  - Brown, C Titus
+T1  - Re-assembly, quality evaluation, and annotation of 678 microbial eukaryotic reference transcriptomes
+LA  - eng
+SN  - 2047-217X
+Y1  - 2019/04/01
+AB  - BACKGROUND: De novo transcriptome assemblies are required prior to analyzing RNA sequencing data from a species without an existing reference genome or transcriptome. Despite the prevalence of transcriptomic studies, the effects of using different workflows, or "pipelines," on the resulting assemblies are poorly understood. Here, a pipeline was programmatically automated and used to assemble and annotate raw transcriptomic short-read data collected as part of the Marine Microbial Eukaryotic Transcriptome Sequencing Project. The resulting transcriptome assemblies were evaluated and compared against assemblies that were previously generated with a different pipeline developed by the National Center for Genome Research. RESULTS: New transcriptome assemblies contained the majority of previous contigs as well as new content. On average, 7.8% of the annotated contigs in the new assemblies were novel gene names not found in the previous assemblies. Taxonomic trends were observed in the assembly metrics. Assemblies from the Dinoflagellata showed a higher number of contigs and unique k-mers than transcriptomes from other phyla, while assemblies from Ciliophora had a lower percentage of open reading frames compared to other phyla. CONCLUSIONS: Given current bioinformatics approaches, there is no single "best" reference transcriptome for a particular set of raw data. As the optimum transcriptome is a moving target, improving (or not) with new tools and approaches, automated and programmable pipelines are invaluable for managing the computationally intensive tasks required for re-processing large sets of samples with revised pipelines and ensuring a common evaluation workflow is applied to all samples. Thus, re-assembling existing data with new tools using automated and programmable pipelines may yield more accurate identification of taxon-specific trends across samples in addition to novel and useful products for the community.
+SP  - giy158
+VL  - 8
+IS  - 4
+AN  - 30544207
+UR  - https://pubmed.ncbi.nlm.nih.gov/30544207
+DO  - 10.1093/gigascience/giy158
+L2  - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6481552/
+U1  - 30544207[pmid]
+U2  - PMC6481552[pmcid]
+U4  - 5241890[PII]
+J2  - Gigascience
+JF  - GigaScience
+KW  - *automated pipeline
+KW  - *marine microbial eukaryote
+KW  - *re-analysis
+KW  - *transcriptome assembly
+KW  - *Computational Biology/methods
+KW  - Databases, Genetic
+KW  - Eukaryota/*genetics
+KW  - *Gene Expression Profiling/methods
+KW  - Genome
+KW  - Genomics/methods
+KW  - High-Throughput Nucleotide Sequencing
+KW  - *Transcriptome
+KW  - Workflow
+PB  - Oxford University Press
+ER  - 
