@@ -8,4 +8,10 @@
 !*.ris
 !*.csv
 !.gitignore
+!*.nex
+!*.pdf
+!*.png
+!*.xml
 !APOE_refseq_transcript.fasta
+!*.raw
+!*.mibs

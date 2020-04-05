@@ -1,0 +1,36 @@
+---
+author: Rishabh Narula (narula.r)
+output:
+  html_document:
+    toc: true
+    toc_depth: 4
+    toc_float: true
+    dev: 'svg'
+  md_document:
+    variant: gfm
+bibliography: bibliography.ris
+---
+
+```{R, echo=TRUE, eval=TRUE}
+
+m <- as.matrix(read.table("ibd_view.mibs")) 
+
+mds <- cmdscale(as.dist(1-m))
+
+k <- c( rep("green",45) , rep("blue",44) ) 
+
+plot(mds,pch=20,col=k) 
+
+knitr::kable(head(m)) 
+
+d <- read.table("rec_snp1.raw" , header=T) 
+
+summary(glm(PHENOTYPE-1 ~ rs2222162_1, data=d, family="binomial")) 
+
+knitr::kable(head(d))
+
+```
+[@chow]
+
+## Refrences
+

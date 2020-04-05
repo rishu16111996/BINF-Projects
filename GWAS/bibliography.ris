@@ -1,0 +1,44 @@
+TY  - JOUR
+ID  - chow
+DB  - PubMed
+AU  - Chang, Christopher C
+AU  - Chow, Carson C
+AU  - Tellier, Laurent Cam
+AU  - Vattikuti, Shashaank
+AU  - Purcell, Shaun M
+AU  - Lee, James J
+T1  - Second-generation PLINK: rising to the challenge of larger and richer datasets
+LA  - eng
+SN  - 2047-217X
+Y1  - 2015/02/25
+AB  - BACKGROUND: PLINK 1 is a widely used open-source C/C++ toolset for genome-wide association studies (GWAS) and research in population genetics. However, the steady accumulation of data from imputation and whole-genome sequencing studies has exposed a strong need for faster and scalable implementations of key functions, such as logistic regression, linkage disequilibrium estimation, and genomic distance evaluation. In addition, GWAS and population-genetic data now frequently contain genotype likelihoods, phase information, and/or multiallelic variants, none of which can be represented by PLINK 1's primary data format. FINDINGS: To address these issues, we are developing a second-generation codebase for PLINK. The first major release from this codebase, PLINK 1.9, introduces extensive use of bit-level parallelism, [Formula: see text]-time/constant-space Hardy-Weinberg equilibrium and Fisher's exact tests, and many other algorithmic improvements. In combination, these changes accelerate most operations by 1-4 orders of magnitude, and allow the program to handle datasets too large to fit in RAM. We have also developed an extension to the data format which adds low-overhead support for genotype likelihoods, phase, multiallelic variants, and reference vs. alternate alleles, which is the basis of our planned second release (PLINK 2.0). CONCLUSIONS: The second-generation versions of PLINK will offer dramatic improvements in performance and compatibility. For the first time, users without access to high-end computing resources can perform several essential analyses of the feature-rich and very large genetic datasets coming into use.
+SP  - 7
+EP  - 7
+VL  - 4
+AN  - 25722852
+UR  - https://pubmed.ncbi.nlm.nih.gov/25722852
+DO  - 10.1186/s13742-015-0047-8
+L2  - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4342193/
+U1  - 25722852[pmid]
+U2  - PMC4342193[pmcid]
+U4  - 47[PII]
+J2  - Gigascience
+JF  - GigaScience
+KW  - Computational statistics
+KW  - GWAS
+KW  - High-density SNP genotyping
+KW  - Population genetics
+KW  - Whole-genome sequencing
+KW  - Algorithms
+KW  - *Computational Biology
+KW  - *Datasets as Topic
+KW  - Genetics, Population
+KW  - Genome-Wide Association Study
+KW  - Genotyping Techniques
+KW  - Likelihood Functions
+KW  - Linkage Disequilibrium
+KW  - Logistic Models
+KW  - Polymorphism, Single Nucleotide
+KW  - *Software
+PB  - BioMed Central
+ER  - 
