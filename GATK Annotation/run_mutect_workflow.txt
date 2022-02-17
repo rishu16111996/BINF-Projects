@@ -1,0 +1,78 @@
+#!/usr/bin/env bash
+# run_mutect_workflow.sh
+
+# Using wget command to download gatk 4.1.6.0 from github, so everyone has the same version for this script, Just remove hashtag, if GATK 4.1.6.0 is not downloaded
+
+#wget https://github.com/broadinstitute/gatk/releases/download/4.1.6.0/gatk-4.1.6.0.zip
+
+# Unzipping Gatk folder in working directory, if you download it again
+
+#unzip ./gatk-4.1.6.0.zip
+
+# creating java jar GATK variable so not need to run whole command again
+gatk4="java -jar gatk-4.1.6.0/gatk-package-4.1.6.0-local.jar"
+
+# creating file variables for all required files
+in="/data/METHODS/Spring/NGS/mutect2/data"
+out="$in/sandbox"
+ref="/ref"
+bam="/bams"
+res="/resources"
+
+#mkdir -p $out
+
+# Mutect2 using GATK variable creating unfiltered.vcf
+$gatk4 Mutect2 \
+	-R $in$ref/Homo_sapiens_assembly38.fasta \
+       	-L $in$res/chr17plus.interval_list \
+       	-I $in$bam/tumor.bam \
+       	-I $in$bam/normal.bam \
+       	-germline-resource $in$res/chr17_af-only-gnomad_grch38.vcf.gz \
+       	-pon $out/pon.vcf.gz   \
+       	--f1r2-tar-gz $out/f1r2.tar.gz \
+       	-O $out/unfiltered.vcf
+
+# LearnModel creating orientation model
+$gatk4 LearnReadOrientationModel -I $out/f1r2.tar.gz -O $out/read-orientation-model.tar.gz
+
+# Summaries function and getting tumor summary
+$gatk4 GetPileupSummaries \
+    	-I $in$bam/tumor.bam \
+    	-V $in$res/chr17_af-only-gnomad_grch38.vcf.gz \
+    	-L $in$res/chr17_af-only-gnomad_grch38.vcf.gz \
+    	-O $out/tumor_getpileupsummaries.table
+
+# Summaries function and getting normal summary
+$gatk4 GetPileupSummaries \
+    -I $in$bam/normal.bam \
+    -V $in$res/chr17_af-only-gnomad_grch38.vcf.gz \
+    -L $in$res/chr17_af-only-gnomad_grch38.vcf.gz \
+    -O $out/normal_getpileupsummaries.table
+
+# calculating contamination with matched function and giving summaries file
+$gatk4 CalculateContamination \
+        -I $out/tumor_getpileupsummaries.table \
+        -matched $out/normal_getpileupsummaries.table \
+        -O $out/tumor_contamination.table \
+        -tumor-segmentation $out/segmentation.table
+
+# FilterMutect to create filtered.vcf
+$gatk4 FilterMutectCalls \
+   -R $in$ref/Homo_sapiens_assembly38.fasta \
+   -V $out/unfiltered.vcf.gz \
+   --contamination-table $out/tumor_contamination.table \
+   --tumor-segmentation $out/segmentation.table \
+   --ob-priors $out/read-orientation-model.tar.gz \
+   -O $out/filtered.vcf.gz
+
+# Downloading Functotator from GATK source and extracting after downloading
+$gatk4 FuncotatorDataSourceDownloader --somatic --validate-integrity --extract-after-download
+
+# Running fucntotator for annotation of variants in VCF file 
+$gatk4 Funcotator \
+   -R $in$ref/Homo_sapiens_assembly38.fasta \
+   -V $out/filtered.vcf.gz \
+   -O $out/filtered.maf \
+   --output-file-format MAF \
+   --data-sources-path funcotator_dataSources.v1.6.20190124s \
+   --ref-version hg38 

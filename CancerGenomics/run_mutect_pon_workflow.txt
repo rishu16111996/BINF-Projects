@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+# run_mutect_pon_workflow.sh
+
+# Using wget command to download gatk 4.1.6.0 from github, so everyone has the same version for this script
+wget https://github.com/broadinstitute/gatk/releases/download/4.1.6.0/gatk-4.1.6.0.zip
+
+# Unzipping gatk folder in working directory
+unzip ./gatk-4.1.6.0.zip
+
+# creating java jar GATK variable so not need to run whole command again
+gatk4="java -jar gatk-4.1.6.0/gatk-package-4.1.6.0-local.jar"
+
+# creating file variables for all required files
+in="/data/METHODS/Spring/NGS/mutect2/data"
+out="$in/sandbox"
+ref="/ref"
+bam="/bams"
+res="/resources"
+
+
+# making new directory for output
+mkdir -p $out
+
+# checking if user passed three bam names as argument with file using IF loop otherwise use default bam names
+if test "$#" -ne 3
+then 
+	echo "No New Bam Files passed as arrgument, Using default BAM files"
+	
+	# Using created java jar variable for running Mutect2 with input as three different bam files with output as vcf file
+	$gatk4 Mutect2 -R $in$ref/Homo_sapiens_assembly38.fasta -I $in$bam/HG00190.intervaled.bam --max-mnp-distance 0 -O $out/normal1.vcf.gz
+
+
+	$gatk4 Mutect2 -R $in$ref/Homo_sapiens_assembly38.fasta -I $in$bam/HG02759.intervaled.bam --max-mnp-distance 0 -O $out/normal2.vcf.gz
+
+
+	$gatk4 Mutect2 -R $in$ref/Homo_sapiens_assembly38.fasta -I $in$bam/NA19771.intervaled.bam --max-mnp-distance 0 -O $out/normal3.vcf.gz
+
+else
+	echo "New Bam File names passed as argument, using new names"
+		
+	# Using created java jar variable for running Mutect2 with input as three different bam files with output as vcf file
+        $gatk4 Mutect2 -R $in$ref/Homo_sapiens_assembly38.fasta -I $in$bam/$1.intervaled.bam --max-mnp-distance 0 -O $out/normal1.vcf.gz
+
+
+        $gatk4 Mutect2 -R $in$ref/Homo_sapiens_assembly38.fasta -I $in$bam/$2.intervaled.bam --max-mnp-distance 0 -O $out/normal2.vcf.gz
+
+
+        $gatk4 Mutect2 -R $in$ref/Homo_sapiens_assembly38.fasta -I $in$bam/$3.intervaled.bam --max-mnp-distance 0 -O $out/normal3.vcf.gz
+
+
+fi
+
+# Running GenomicDBImport to create Database for reference file for creating PON file
+$gatk4 GenomicsDBImport -R $in$ref/Homo_sapiens_assembly38.fasta -L $in$res/chr17plus.interval_list --genomicsdb-workspace-path pon_db  -V $out/normal1.vcf.gz -V $out/normal2.vcf.gz -V $out/normal3.vcf.gz
+
+
+# Using CreateSomatic Function from GATK, to create Panel of Normal file for three bam files as PoN.vcf.gz
+$gatk4 CreateSomaticPanelOfNormals -R $in$ref/Homo_sapiens_assembly38.fasta \
+      --germline-resource $in$res/chr17_af-only-gnomad_grch38.vcf.gz \
+      -V gendb://pon_db \
+      -O $out/pon.vcf.gz
