@@ -53,4 +53,4 @@ def connect_to_server(num_of_pokemon: int, url_passed=f"https://pokeapi.co/api/v
         
         added.append(f"{name}\n")
 
-    return added
+    return f"{len(added)} Pokemons added"
