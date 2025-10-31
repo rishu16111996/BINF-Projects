@@ -4,6 +4,8 @@ from models import Pokemon
 from get_files import connect_to_server
 from handle_query import get_all_answers
 from handle_query import run_user_query_on_db
+import os
+from werkzeug.utils import secure_filename
 
 @app.route("/pokemons", methods=["GET"])
 def get_contact():
@@ -42,6 +44,27 @@ def run_user_query():
     except Exception as e:
         print("ERROR in /query:", e)
         return jsonify({"message": "Error", "data": str(e)}), 500
+    
+@app.route("/upload", methods=["POST"])
+def upload_file():
+    DB_FOLDER = "instance"
+    DB_FILE = os.path.join(DB_FOLDER, "mydatabase.db")
+    os.makedirs(DB_FOLDER, exist_ok=True)
+    if "file" not in request.files:
+        return jsonify({"data": "No file part"}), 400
+
+    file = request.files["file"]
+    if file.filename == "":
+        return jsonify({"data": "No file selected"}), 400
+
+    filename = secure_filename(file.filename)
+    save_path = DB_FILE
+    try:
+        file.save(save_path)
+        return jsonify({"data": f"Database file saved as {save_path}"})
+    except Exception as e:
+        print("Error saving file:", e)
+        return jsonify({"data": "Error saving file"}), 500
 
 if __name__ == "__main__":
     with app.app_context():
