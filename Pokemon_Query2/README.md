@@ -217,8 +217,3 @@ App available at:
 ## 📬 Contact
 
 **Rishabh Narula**  
-GitHub: https://github.com/your-profile  
-LinkedIn: https://linkedin.com/in/your-profile  
-
----
-
