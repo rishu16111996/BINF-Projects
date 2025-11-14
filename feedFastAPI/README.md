@@ -2,7 +2,6 @@
 
 ## 🚀 Overview
 This project is a web application built using **FastAPI** (backend API) and **Streamlit** (frontend UI) that allows users to upload, view, and share photos/videos.  
-It is inspired by TechWithTim’s `FastAPIPhotoVideoSharing` repository, but built and customized in my own way.
 
 ## 🔥 Features
 - Upload images and videos through API  
