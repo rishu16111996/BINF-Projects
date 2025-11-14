@@ -1,0 +1,25 @@
+# Configuration file for DM1 Snakemake pipeline
+datadirs:
+  fastq: "data/fastq"        # Input FASTQ directory (paired-end reads)
+  qc: "results/qc"           # QC output directory (FastQC, MultiQC)
+  trim: "results/trimmed"    # Trimmed reads output directory
+  bam: "results/star_pass1"  # STAR first-pass outputs (SJ.out.tab files)
+  sj_files: "results/star_pass1"       # Directory for merged SJ.out.tab
+  stargenomedir: "results/star_index_pass2"  # Directory for STAR second-pass index
+  pass2: "results/star_align"           # STAR second-pass outputs (BAMs, gene counts)
+  RGbam: "results/bam_postproc"         # BAMs after adding read groups
+  dedup: "results/bam_postproc"         # BAMs after duplicate marking
+  splitNcigar: "results/bam_postproc"   # BAMs after SplitNCigarReads
+  Recal1: "results/recalibration"       # First-pass recalibration tables
+  BQSR_1: "results/recalibration"       # First-pass recalibrated BAMs
+  Recal2: "results/recalibration"       # Second-pass recalibration tables
+  BQSR_2: "results/recalibration"       # Second-pass recalibrated BAMs (final BAMs)
+  vcf: "results/variants"               # VCF output directory
+
+reference:
+  fasta: "/path/to/GRCh38/genome.fa"                      # Reference genome FASTA
+  gtf: "/path/to/GRCh38/annotation.gtf"                   # Reference gene annotation GTF
+  star_index: "/path/to/GRCh38/star_index"                # Pre-built STAR index (for first pass)
+  known_sites_snp: "/path/to/1000G_phase1.snps.high_confidence.hg38.vcf"   # Known SNPs (for BQSR)
+  known_sites_indel: "/path/to/Mills_and_1000G_gold_standard.indels.hg38.vcf"  # Known indels (for BQSR)
+  dbsnp: "/path/to/Homo_sapiens_assembly38.dbsnp.vcf"     # dbSNP VCF (for BQSR)

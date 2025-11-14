@@ -1,0 +1,16 @@
+name: dm1_rna_pipeline_env
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - fastqc=0.12.1
+  - trim-galore=0.6.7
+  - star=2.7.11b
+  - picard=2.27.4
+  - samtools=1.17
+  - gatk4=4.4.0.0
+  - bcftools=1.17
+  - multiqc=1.14
+  - openjdk=11

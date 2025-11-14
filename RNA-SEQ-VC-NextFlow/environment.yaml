@@ -1,0 +1,16 @@
+name: dm1_rna_pipeline_env
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9           # Ensure a Python version for MultiQC
+  - fastqc=0.12.1
+  - trim-galore=0.6.7
+  - star=2.7.11b
+  - picard=2.27.4
+  - samtools=1.17
+  - gatk4=4.4.0.0        # GATK4 for SplitNCigarReads, BaseRecalibrator, etc.
+  - bcftools=1.17        # For indexing VCF if needed
+  - multiqc=1.14
+  - openjdk=11           # Java runtime for Picard/GATK
